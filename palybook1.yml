@@ -1,0 +1,12 @@
+---
+- name: create a user
+  hosts: cmserver
+  tasks:
+    - name: user creation
+      user: 
+       name: rahul
+       password: 1477
+       uid: 1144
+       comment: "hlo chn"
+       home: /tmp/raju
+...
