@@ -1,0 +1,25 @@
+---
+- name: implement tags
+  hosts: all
+  tasks:
+    - name: install tree
+      apt:
+        name: tree
+        state: present
+        update-cache: no
+      tags: tree_install
+    - name: install git
+      apt:
+        name: git
+        state: present
+        update_cache: no
+      tags: git_install
+    - name: create user
+      user:
+        name: anu
+        password: 123
+      tags: user_creation
+    - name: copy passwd file
+      copy:
+        src: /etc/passwd
+        dest: /tmp
