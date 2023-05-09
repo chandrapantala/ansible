@@ -1,0 +1,39 @@
+---
+- name: install jenkins and requirec s/w
+  hosts: jenkin
+  tasks:
+   - name: install requirec s/w
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: git,b: present,c: yes}
+      - {a: openjdk-11-jdk,b: present,c: yes}
+      - {a: maven,b: present,c: yes}
+   - name: install jenkins.war
+     get_url:
+       url: "https://get.jenkins.io/war-stable/2.387.3/jenkins.war"
+       dest: /home/ubuntu
+- name: install tomcat9 and tomcat9-admin
+  hosts: servers
+  tasks:
+    - name: install tomcat9 and tomcat9-admin
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      with_items:
+        - {a: tomcat9,b: present,c: yes}
+        - {a: tomcat9-admin,b: present,c: no}
+    - name: copy tomcat-usesr.xml file
+      copy:
+        src: tomcat-users.xml
+        dest: /etc/tomcat9
+      notify: restart tomcat
+  handlers:
+    - name: restart tomcat
+      service:
+        name: tomcat9
+        state: restarted
+

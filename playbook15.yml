@@ -1,0 +1,20 @@
+---
+- name: error handling
+  hosts: all
+  tasks:
+    - block:
+        - name: install git into apt
+          apt:
+            name: apt
+            state: present
+            update_cache: yes
+      rescue:
+        - name: install git into yum
+          yum:
+            name: git
+            state: present
+            update_cache: no
+      always:
+        - name: display git success
+          debug:
+            msg: "git is super"
