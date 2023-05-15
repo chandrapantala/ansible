@@ -1,0 +1,14 @@
+---
+- name: configu apache
+  hosts: bdserver
+  tasks:
+    - name: call child playbook install apache
+      include: install.yml
+    - name: call child playbook index.html file
+      include: index.yml
+    - name: call child playbook restart apache
+      include: restart.yml
+    - name: call child playbook pause
+      include: pause.yml
+    - name: call child playbook responce url sersvers
+      include: responce.yml

@@ -1,0 +1,12 @@
+---
+a: apache2
+b: present
+c: yes
+d: wel ppm
+e: /var/www/html/index.html
+f: restarted
+g: 1
+h: http://172.31.26.158
+i: 200
+j: http://172.31.1.228
+...

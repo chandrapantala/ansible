@@ -1,5 +1,14 @@
 ---
-a: firewalld
+a: tomcat9
 b: present
-c: no
+c: yes
+d: tomcat9-admin
+e: no
+f: tomcat-users.xml
+g: /etc/tomcat9
+h: restarted
+i: 1
+j: http://172.31.26.158
+k: 200
+l: http://172.31.1.228
 ...

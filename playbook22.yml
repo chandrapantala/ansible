@@ -1,0 +1,39 @@
+---
+- name: configure apache2 on Ubuntu and httpd on red
+  hosts: all
+  tasks:
+    - name: install apache2 on Ubuntu
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+    - name: install httpd on red
+      yum:
+        name: httpd
+        state: present
+        update_cache: yes
+      when: ansible_distribution  == "RedHat"
+    - name: edit index.html
+      copy:
+        content: "wel pav"
+        dest: /var/www/html/index.html
+    - name: restart apache on Ubuntu
+      service:
+        name: apache2
+        state: restarted
+      when: ansible_distribution  == "Ubuntu"
+    - name: restart httpd on red
+      service:
+        name: httpd
+        state: restarted
+      when: ansible_distribution  == "RedHat"
+    - name: check apache/httpd responce all
+      uri:
+        url: "{{item}}"
+        status_code: 200
+      with_items:
+        - http://172.31.1.228
+        - http://172.31.25.230
+        - http://172.31.19.162
+

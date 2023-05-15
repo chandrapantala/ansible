@@ -1,0 +1,38 @@
+---
+- name: install reqire s/w on devserver
+  hosts: devserver
+  tasks:
+    - name: install reqire s/w on devserver using apt
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      with_items:
+        - {a: git,b: present,c: yes}
+        - {a: openjdk-11-jdk,b: present,c: yes}
+        - {a: maven,b: present,c: yes}
+- name: install reqire s/w on qaserver
+  hosts: qaserver
+  tasks:
+    - name: install reqire s/w on qaserver using apt
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      with_items:
+        - {a: git,b: present,c: yes}
+        - {a: openjdk-11-jdk,b: present,c: yes}
+        - {a: tomcat9,b: present,c: yes}
+        - {a: tomcat9-admin,b: present,c: no}
+- name: install reqire s/w on prodserver
+  hosts: prodserver
+  tasks:
+    - name: install reqire s/w on prodserver using apt
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      with_items:
+        - {a: tomcat9,b: present,c: yes}
+        - {a: tomcat9-admin,b: present,c: no}
+

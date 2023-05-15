@@ -1,0 +1,6 @@
+---
+- name: install apache
+  hosts: bdserver
+  tasks:
+    - name: call child playbook
+      include: install.yml

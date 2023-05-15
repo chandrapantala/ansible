@@ -1,0 +1,14 @@
+---
+- name: tomcat config
+  hosts: bdserver
+  tasks:
+    - name: install tomcat
+      include: install.yml
+    - name: tomcat-users.xml file
+      include: index.yml
+    - name: restart tomcat
+      include: restart.yml
+    - name: pause servers for min
+      include: pause.yml
+    - name: responce servers all
+      include: responce.yml

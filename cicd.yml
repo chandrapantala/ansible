@@ -1,0 +1,34 @@
+---
+- name: cont down and cont build
+  hosts: devserver
+  tasks:
+    - name: cont down
+      git:
+        repo: https://github.com/intelliqittrainings/maven.git
+        dest: dev-git
+    - name: cont build at mvn
+      shell: cd dev-git;mvn package
+    - name: fetch from devserver
+      fetch:
+        src: dev-git/webapp/target/webapp.war
+        dest: /tmp
+- name: cont deploy and cont test
+  hosts: qaserver
+  tasks:
+    - name: deploy in tomcat
+      copy:
+        src: /tmp/172.31.25.230/dev-git/webapp/target/webapp.war
+        dest: /var/lib/tomcat9/webapps/testapp.war
+    - name: down selinium
+      git:
+        repo: https://github.com/intelliqittrainings/FunctionalTesting.git
+        dest: test-git
+    - name: exicute scripts
+      shell: java -jar test-git/testing.jar
+- name: cont delivery
+  hosts: prodserver
+  tasks:
+    - name: deploy in tomcat on prodserver
+      copy:
+        src: /tmp/172.31.25.230/dev-git/webapp/target/webapp.war
+        dest: /var/lib/tomcat9/webapps/prodapp.war

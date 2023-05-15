@@ -1,0 +1,4 @@
+---
+- name: pause services 1 min
+  pause:
+    minutes: "{{i}}"
