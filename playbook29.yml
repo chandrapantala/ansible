@@ -1,0 +1,29 @@
+---
+- name: config apache2
+  hosts: all
+  serial:
+    - 1
+    - 2
+    - 3
+  tasks:
+    - name: install apache2
+      apt:
+       name: apache2
+       state: present
+       update_cache: yes
+    - name: edit the index.html file
+      copy:
+       content: "welcome chandu"
+       dest: /var/www/html/index.html
+    - name: restart apache2
+      service:
+       name: apache2
+       state: restarted
+    - name: check apache responce on server1
+      uri:
+       url: "{{item}}"
+       status_code: 200
+      with_items:
+        - http://172.31.1.228
+        - http://172.31.26.158
+
