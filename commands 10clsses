@@ -1,0 +1,349 @@
+ubuntu@ip-172-31-93-7:~/playbooks$ history
+    1  sudo passwd ubuntu
+    2  sudo vim /etc/ssh/ssh_config
+    3  sudo vim /etc/ssh/sshd_config
+    4  sudo service ssh restart
+    5  exit
+    6  ssh-keygen
+    7  ls
+    8  sudo apt-get upadate
+    9  sudo apt-get update
+   10  sudo apt-add-repository ppa:ansible/ansible
+   11  sudo apt install ansible
+   12  ansible --version
+   13  ls
+   14  cd /etc/ansible/
+   15  ls
+   16  cd /hosts
+   17  cd hosts/
+   18  sudo vim hosts
+   19  cd
+   20  ansible all -a 'ls -la'
+   21  ansibel all -m -a 'free -m'
+   22  ansible all -m -a 'free -m'
+   23  cd /etc/ansible/
+   24  sudo vim hosts
+   25  ansible all -a 'ls -la'
+   26  cd
+   27  ansible all -a 'ls -la'
+   28  ansible all -m -a 'free -m'
+   29  ansible --version
+   30  ls
+   31  ls -la
+   32  ansible all -a 'date'
+   33  exit
+   34  ssh-copy-id ubuntu@172.31.18.121
+   35  ansible all -a 'date'
+   36  ansible all -a 'free -m'
+   37  ansible all -m user -a 'name=sai password=123' -b
+   38  ssh 172.31.18.121
+   39  ansible all -m user -a 'name=ch password=1112 uid=1010 comment="hi"'
+   40  ansible all -m user -a 'name=ch password=1112 uid=1010 comment="hi" shell=/bin/bash' -b
+   41  ssh 172.31.18.121
+   42  ansible all -m file -a 'name=/tmp/file state=touch'
+   43  ssh 172.31.18.121
+   44  ansible all -m file -a 'name=/tmp/file state=absent'
+   45  ssh 172.31.18.121
+   46  ansible all -m file -a 'name=/tmp/dir state=directory'
+   47  ssh 172.31.18.121
+   48  ansible all -m file -a 'name=/tmp/dir state=absent'
+   49  ansible all -m file -a 'name=/tmp/file state=touch mode=770 owner=sai group=ram' -b
+   50  ansible all -m file -a 'name=/tmp/file state=touch mode=770 owner=sai' -b
+   51  ssh 172.31.18.121
+   52  ansible all -m file -a 'name=/tmp/file state=absent'
+   53  ansible all -m file -a 'name=/tmp/file state=absent mode=770 owner=sai' -b
+   54  cat>file2
+   55  ansible all -m copy -a 'src=file2 dest=tmp'
+   56  ssh 172.31.18.121
+   57  ansible all -m copy -a 'src=file2 dest=/tmp'
+   58  ssh 172.31.18.121
+   59  ansible all -m file -a 'name=/tmp/file2 state=absent'
+   60  ansible all -m file -a 'name=tmp/file2 state=absent'
+   61  ls
+   62  rm file2
+   63  ls
+   64  ansible all -m apt -a 'name=git state=present' -b
+   65  git version
+   66  ssh 172.31.18.121
+   67  ansible all -m apt -a 'name=git state=absent' -b
+   68  git version
+   69  ssh 172.31.18.121
+   70  remove git
+   71  apt remove git
+   72  sudo apt remove git
+   73  git version
+   74  ansible all -m apt -a 'name=maven state=present' -b
+   75  ansible all -m apt -a 'name=tomcat state=present' -b
+   76  ansible all -m apt -a 'name=tomcat9 state=present' -b
+   77  ansible all -m apt -a 'name=git state=present' -b
+   78  ansible all -m apt -a 'name=tomcat9 state=present' -b
+   79  ansible all -m apt -a 'name=maven state=present' -b
+   80  ansible all -m apt -a 'name=tomcat9 state=present update_cache=yes' -b
+   81  ssh 172.31.18.121
+   82  tomcat version
+   83  tomcat9 version
+   84  ansible all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+   85  ansible all -m apt -a 'name=git state=absent' -b
+   86  git version
+   87  ssh 172.31.18.121
+   88  ansible all -m service -a 'name=tomcat9 state=restart' -b
+   89  ansible all -m service -a 'name=tomcat9 state=started' -b
+   90  ansible all -m apt -a 'name=tomcat9 state=present update_cache=yes' -b
+   91  ansible all -m service -a 'name=tomcat9 state=stopped' -b
+   92  ansible all -m service -a 'name=tomcat9 state=started' -b
+   93  ansible all -m all -a 'name=tomcat9 state=absent update_cache=yes' -b
+   94  ansible all -m all -a 'name=tomcat9 state=absent' -b
+   95  ansible all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+   96  git version
+   97  ls
+   98  ls -la
+   99  ansible all -m apt -a 'name=tomcat9 state=present update_cache=yes' -b
+  100  ssh 172.31.18.121
+  101  ansible all -m replace -a 'regexp=8080 replace=9090 path=/etc/tomcat9/server.xml' -b
+  102  ansible all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+  103  ansible all -m apt -m 'name=firewall state=absent' -b
+  104  ansible all -m apt -a 'name=apache2 state=present update_cache=yes' -b
+  105  ansible all -m copy -a 'content="chandu is megaPOWERstar" dest=/var/www/html/index.html' -b
+  106  ansible all -m apt -a 'name=apache2 state=absent update_cache=yes' -b
+  107  mkdir playbooks
+  108  cd playbooks
+  109  ls
+  110  vim plb1.yml
+  111  ansible-playbook plb1.yml --syntex-check
+  112  ansible-playbook plb1.yml -b
+  113  vim plb1.yml
+  114  ansible-playbook plb1.yml -b
+  115  vim plb1.yml
+  116  ansible-playbook plb1.yml -b
+  117  ssh 172.31.18.121
+  118  vim plb2.yml
+  119  ansible-playbook plb2.yml -b
+  120  vim plb2.yml
+  121  ansible-playbook plb2.yml -b
+  122  vim plb2.yml
+  123  ansible-playbook plb2.yml -b
+  124  vim plb2.yml
+  125  ansible-playbook plb2.yml -b
+  126  git version
+  127  ssh 172.31.18.121
+  128  vim plb3.yml
+  129  ansible-playbook plb3.yml -b
+  130  vim plb3.yml
+  131  ansible-playbook plb3.yml -b
+  132  vim plb3.yml
+  133  ansible-playbook plb3.yml -b
+  134  vim plb3.yml
+  135  ansible-playbook plb3.yml -b
+  136  vim plb3.yml
+  137  vim plb3-d.yml
+  138  vim plb3.yml
+  139  vim plb3-1.yml
+  140  ansible-playbook plb3-1,yml -b
+  141  ansible-playbook plb3-1.yml -b
+  142  ssh 172.31.18.121
+  143  ls
+  144  vim plb4.yml
+  145  pwd
+  146  ls
+  147  pwd
+  148  cp tomcat-users.xml playbooks
+  149  cp tomcat-users.xml playbooks
+  150  pwd
+  151  cd playbooks
+  152  ls
+  153  vim plb4.yml
+  154  vim plb5.yml
+  155  ansible-playbook plb5.yml -b
+  156  ls
+  157  cd /etc/tomcat
+  158  ssh 172.31.18.121
+  159  cd
+  160  cp tomcat-users.xml playbooks
+  161  ssh 172.31.18.121
+  162  cd playbooks
+  163  ansible-playbook plb4.yml -b
+  164  vim plb4.yml
+  165  lsam
+  166  ssh 172.31.18.121
+  167  ls
+  168  vi plb4.yml
+  169  cat tomcat-users.xml
+  170  cat >tomcat-users.xml
+  171  ls
+  172  pwd
+  173  vi plb4.yml
+  174  ansible-playbook plb4.yml -b
+  175  vi plb4.yml
+  176  ansible-playbook plb4.yml -b
+  177  vi plb4.yml
+  178  ansible-playbook plb4.yml -b
+  179  vi plb4.yml
+  180  ansible-playbook plb4.yml -b
+  181  vi plb4.yml
+  182  ansible-playbook plb4.yml -b
+  183  ssh 172.31.18.121
+  184  vi plb4.yml
+  185  ssh 172.31.18.121
+  186  ansible-playbook plb4.yml -b
+  187  vi plb4.yml
+  188  ssh 172.31.18.121
+  189  vim plb5.yml
+  190  ansible-playbook plb5.yml -b
+  191  vim plb5.yml
+  192  ansible-playbook plb5.yml -b
+  193  ls
+  194  vi plb4.yml
+  195  cd playbooks
+  196  ls
+  197  vi plb4.yml
+  198  ansible-playbook plb4.yml -b
+  199  ansible all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+  200  ansible all -m apt -a 'name=tomcat9-admin state=absent update_cache=yes' -b
+  201  vim plb6.yml
+  202  ansible-playbook plb6.yml --extar-vars "a=tree n=present c=no" -b
+  203  ansible-playbook plb6.yml --extra-vars "a=tree n=present c=no" -b
+  204  ansible all -m apt -a 'name=tree state=absent update_cache=no' -b
+  205  tree
+  206  vim plb7.yml
+  207  ansible-playbook plb7.yml --extra-vars "a=balu b=145 c=1515 d=raj e=/tmp/ra f=/tmp/dir1 g=touch' -b
+  208  vim plb7.yml
+  209  ansible-playbook plb7.yml --extra-vars "a=balu b=145 c=1515 d=raj e=/tmp/f1 f=touch' -b
+  210  vim plb7.yml
+  211  ansible-playbook plb7.yml --extra-vars "a=balu b=145 c=1515 e=/tmp/f1 f=touch' -b
+  212  vim plb8.yml
+  213  ansible-playbook plb8.yml -b
+  214  ansible-playbook plb5.yml -b
+  215  sudo apt remove --prune tomcat9
+  216  sudo apt remove tomcat9
+  217  ansible-playbook all -m apt -a 'name=tomcat9 state=absent update_cache=no' -b
+  218  ansible-playbook all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+  219  ssh 107.20.12.196
+  220  ssh 172.31.18.121
+  221  ls
+  222  vim plb9.yml
+  223  mkdir group_vars
+  224  cd group_vars
+  225  ls
+  226  vim bdserver.yml
+  227  cd ..
+  228  ansible-playbook plb9.yml -b
+  229  vim plb9.yml
+  230  ansible-playbook plb9.yml -b
+  231  cd group_vars
+  232  ls
+  233  vim bdserver.yml
+  234  rm bdserver.yml
+  235  vim all
+  236  cd ..
+  237  ansible-playbook plb9.yml -b
+  238  sudo apt remove apache2
+  239  ansible all -m apt -a 'name=apache2 state=absent update_cache=no' -b
+  240  vim plb10.yml
+  241  cd group_vars
+  242  vim all
+  243  cd ..
+  244  ansible-playbook plb10.yml -b
+  245  vim plb10.yml
+  246  ansible-playbook plb10.yml -b
+  247  ssh 172.31.18.121
+  248  vim plb-with_items.yml
+  249  ansible-playbook plb-with_item.yml -b
+  250  ansible-playbook plb-with_items.yml -b
+  251  ansible all -m apt -a 'name=git state=absent' -b
+  252  ansible all -m apt -a 'name=maven state=absent' -b
+  253  vim plb-with_items2.yml
+  254  ansible-playbook plb-with_items2.yml -b
+  255  ansible all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+  256  ansible all -m apt -a 'name=tomcat9-admin state=absent update_cache=no' -b
+  257  vim plb-handeler1.yml
+  258  ansible-playbook plb-handeler1.yml -b
+  259  vim plb-handeler1.yml
+  260  ansible-playbook plb-handeler1.yml -b
+  261  ls
+  262  vim plb-handeler1.yml
+  263  ansible-playbook plb-handeler1.yml -b
+  264  vim plb-handeler1.yml
+  265  ansible-playbook plb-handeler1.yml -b
+  266  vim plb-handeler1.yml
+  267  ansible all -m apt -a 'name=apache2 state=absent update_cache=no' -b
+  268  vim plb-handler2.yml
+  269  ansible-playbook plb-handler2.yml -b
+  270  vim plb-handler2.yml
+  271  ansible-playbook plb-handler2.yml -b
+  272  vim plb-handler2.yml
+  273  ansible-playbook plb-handler2.yml -b
+  274  vim plb-handler2.yml
+  275  ansible-playbook plb-handler2.yml -b
+  276  ansible all -m apt -a 'name=apache2 state=absent update_cache=no' -b
+  277  ansible-playbook plb-tags.yml
+  278  ansible-playbook plb-tags.yml -b
+  279  vim plb-tags.yml
+  280  ansible-playbook plb-tags.yml -b
+  281  vim plb-tags.yml
+  282  ansible-playbook plb-tags.yml -b
+  283  ansible-playbook plb-tags.yml --tags="taged" -b
+  284  ansible-playbook plb-tags.yml --tags="untaged" -b
+  285  ansible-playbook plb-tags.yml --tags="untagged" -b
+  286  ansible-playbook plb-tags.yml --tags="tagged" -b
+  287  ansible all -m apt -a 'name=tree state=absent' -b
+  288  vim plb-error_handler.yml
+  289  ansible-playbook plb-error_handler.yml -b
+  290  vim plb-error_handler.yml
+  291  ansible-playbook plb-error_handler.yml -b
+  292  vim plb-error_handler.yml
+  293  ansible-playbook plb-error_handler.yml -b
+  294  ansible all -m apt -a 'name=git state=absent' -b
+  295  cd playbooks
+  296  ls
+  297  vim multiserver_use_plb.yml
+  298  ansible-playbook multiserver_use_plb.yml -b
+  299  vim multiserver_use_plb.yml
+  300  ansible-playbook multiserver_use_plb.yml -b
+  301  vim multiserver_use_plb.yml
+  302  ansible-playbook multiserver_use_plb.yml -b
+  303  vim multiserver_use_plb.yml
+  304  ansible-playbook multiserver_use_plb.yml -b
+  305  ansible all -m apt -a 'name=git state=absent update_cache=no' -b
+  306  ansible all -m apt -a 'name=maven state=absent update_cache=no' -b
+  307  ansible all -m apt -a 'name=openjdk-11-jdk state=absent update_cache=yes' -b
+  308  ansible all -m apt -a 'name=tomcat9 state=absent update_cache=yes' -b
+  309  ansible all -m apt -a 'name=tomcat9-admin state=absent update_cache=no' -b
+  310  git --version
+  311  ansible-vault create plb12.yml
+  312  ansible-playbook plb12.yml -b
+  313  ansible-vault view plb12.yml -b
+  314  ansible-vault edit plb12.yml -b
+  315  ansible-vault edit plb12.yml
+  316  ansible-vault view plb12.yml
+  317  ansible-playbook plb12.yml --ask--vault-pass
+  318  ansible-playbook plb12.yml --ask--vault
+  319  ansible-playbook plb12.yml --ask--vault-password
+  320  ansible-playbook plb12.yml --ask--vault password
+  321  ansible-playbook plb12.yml --ask--vault--password
+  322  ansible-playbook plb12.yml --ask--vault--password -b
+  323  ansible-playbook plb12.yml --ask--vault -b
+  324  ansible-playbook plb12.yml --ask-vault-pass -b
+  325  ansible-vault encrtpt plb12.yml
+  326  ansible-vault encrypt plb12.yml
+  327  ls
+  328  vim when-pbl.yml
+  329  ansible-playbook when-plb.yml -b
+  330  ansible-playbook when-pbl.yml -b
+  331  vim when2-plb.yml
+  332  ansible-playbook when-pbl.yml -b
+  333  vim when2-plb.yml
+  334  ansible-playbook when-pbl.yml -b
+  335  ansible-playbook when2-pbl.yml -b
+  336  ansible-playbook when2-plb.yml -b
+  337  vim when2-plb.yml
+  338  ansible-playbook when2-plb.yml -b
+  339  ls
+  340  vim when3-plb.yml
+  341  ansible-playbook when3-plb.yml -b
+  342  vim when3-plb.yml
+  343  ansible-playbook when3-plb.yml -b
+  344  ansible all -m apt -a 'name=git state=absent' -b
+  345  vim stat-plb.yml
+  346  ansible-playbook stat-plb.yml -b
+  347  history
+ubuntu@ip-172-31-
